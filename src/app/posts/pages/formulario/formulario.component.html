@@ -1,0 +1,102 @@
+<p>formulario works!</p>
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Crear Nueva Publicación</h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+              
+              <!-- User ID -->
+              <div class="mb-3">
+                <label for="userId" class="form-label">ID de Usuario</label>
+                <input 
+                  type="number" 
+                  class="form-control" 
+                  id="userId" 
+                  formControlName="userId"
+                  [ngClass]="{'is-invalid': submitted && f['userId'].errors}">
+                @if (submitted && f['userId'].errors) {
+                <div class="invalid-feedback">
+                   @if (f['userId'].errors['required']) {
+
+                     <div>El ID de usuario es obligatorio</div>
+
+                   } 
+                  @if (f['userId'].errors['min']) {
+                  <div >El ID de usuario debe ser mayor a 0</div>
+
+
+                  } 
+                </div>
+
+                  }
+               
+              </div>
+              
+              <!-- Title -->
+              <div class="mb-3">
+                <label for="title" class="form-label">Título</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="title" 
+                  formControlName="title"
+                  [ngClass]="{'is-invalid': submitted && f['title'].errors}">
+                  @if (submitted && f['title'].errors) {
+                  <div class="invalid-feedback">
+                  @if (f['title'].errors['required']) {
+                        <div >El título es obligatorio</div>
+
+                    }
+                  @if (f['title'].errors['minlength']) {
+                        <div >El título debe tener al menos 5 caracteres</div>
+
+                    }
+                </div>
+                  }
+              
+              </div>
+              
+              <!-- Body -->
+              <div class="mb-3">
+                <label for="body" class="form-label">Contenido</label>
+                <textarea 
+                  class="form-control" 
+                  id="body" 
+                  formControlName="body" 
+                  rows="5"
+                  [ngClass]="{'is-invalid': submitted && f['body'].errors}"></textarea>
+                  @if (submitted && f['body'].errors) {
+                <div class="invalid-feedback">
+                    @if (f['body'].errors['required']) {
+                        <div >El contenido es obligatorio</div>
+
+                    }
+                    @if (f['body'].errors['minlength']) {
+                        <div >El contenido debe tener al menos 10 caracteres</div>
+
+                    }
+                </div>
+
+                  }
+                
+              </div>
+              
+              <!-- Submit & Reset buttons -->
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpiar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <!-- Preview of submitted post -->
+       
+      </div>
+    </div>
+  </div>
