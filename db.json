@@ -41,6 +41,18 @@
       "title": "teruel",
       "body": "en teruel tengo unprimo",
       "id": 186
+    },
+    {
+      "userId": 1,
+      "title": "no me gusta",
+      "body": "la carne de caballo",
+      "id": 187
+    },
+    {
+      "userId": 1,
+      "title": "vacas",
+      "body": "si me gusta la carne de vaca",
+      "id": 188
     }
   ],
   "users": [

@@ -1,20 +1,19 @@
-import { Component, computed, effect, inject, input, signal } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NgClass } from '@angular/common';
+import { Component, effect, inject, input, signal } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Post } from '../../../interfaces/post';
-import { NgClass} from '@angular/common';
 import { PostService } from '../../../services/post.service';
-import { httpResource } from '@angular/common/http';
+
 @Component({
-  selector: 'app-formulario',
+  selector: 'app-edit',
   imports: [ReactiveFormsModule, NgClass],
-  templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.css'
+  templateUrl: './edit.component.html',
+  styleUrl: './edit.component.css'
 })
-export class FormularioComponent{
+export class EditComponent {
   submitted = false;
   private formBuilder = inject(FormBuilder);
-
+  id=input.required<number>();
   postService=inject(PostService)
   post=signal<Post>({
     'userId':0,
@@ -28,7 +27,12 @@ export class FormularioComponent{
       body: ['', [Validators.required, Validators.minLength(10)]]
     });
   
- 
+ miid=effect(()=>{
+this.postService.getPost(this.id()).subscribe(data=>{
+  this.postForm.patchValue(data)
+  this.post.set(data)
+})
+ })
   get f() {
     return this.postForm.controls;
   }
@@ -43,7 +47,7 @@ export class FormularioComponent{
     
     console.log('Form submitted successfully', this.postForm.value);
     // Aquí puedes enviar los datos a un API
-    this.postService._createPost(this.postForm.value as Post).subscribe(data=>{
+    this.postService.updatePost(this.postForm.value as Post,this.id()).subscribe(data=>{
       console.log(data)
     })
     
@@ -57,3 +61,4 @@ export class FormularioComponent{
     this.postForm.reset({userId: 1});
   }
 }
+

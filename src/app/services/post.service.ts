@@ -45,8 +45,8 @@ http=inject(HttpClient)
     return this.http.post<Post>(this.apiUrl, post);
   }
 
-  updatePost(post: Post): Observable<Post> {
-    return this.http.put<Post>(`${this.apiUrl}/${post.id}`, post);
+  updatePost(post: Post,id:number): Observable<Post> {
+    return this.http.put<Post>(`${this.apiUrl}/${id}`, post);
   }
 
   deletePost(id: number): Observable<void> {
