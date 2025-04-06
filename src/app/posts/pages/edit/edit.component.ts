@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { Component, effect, inject, input, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Post } from '../../../interfaces/post';
 import { PostService } from '../../../services/post.service';
@@ -10,7 +10,8 @@ import { PostService } from '../../../services/post.service';
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })
-export class EditComponent {
+export class EditComponent implements OnInit {
+  
   submitted = false;
   private formBuilder = inject(FormBuilder);
   id=input.required<number>();
@@ -20,19 +21,27 @@ export class EditComponent {
     'title':'',
      'body':''
   })
-
+  ngOnInit(): void {
+    this.postService.getPost(this.id()).subscribe(data=>{
+      this.postForm.patchValue(data)
+      this.post.set(data)
+    })
+  }
       postForm = this.formBuilder.nonNullable.group({
       userId: [1, [Validators.required, Validators.min(1)]],
       title: ['', [Validators.required, Validators.minLength(5)]],
       body: ['', [Validators.required, Validators.minLength(10)]]
     });
   
- miid=effect(()=>{
+    // si no queremos utilizar ngOnInit podemos crear un efecto
+
+/*  miid=effect(()=>{
 this.postService.getPost(this.id()).subscribe(data=>{
   this.postForm.patchValue(data)
   this.post.set(data)
 })
- })
+ }) */
+
   get f() {
     return this.postForm.controls;
   }

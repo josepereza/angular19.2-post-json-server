@@ -2,9 +2,9 @@
   "posts": [
     {
       "userId": 1,
-      "id": 1,
-      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+      "title": "el asunto caixa",
+      "body": "quia et suscipit, jajajajajajaja\nsuscipit recusandae consequuntur expedita et cum\nla caixa tiene",
+      "id": 1
     },
     {
       "userId": 1,
@@ -39,7 +39,7 @@
     {
       "userId": 1,
       "title": "teruel",
-      "body": "en teruel tengo unprimo",
+      "body": "en teruel tengo un primo muy bueno",
       "id": 186
     },
     {
@@ -50,9 +50,15 @@
     },
     {
       "userId": 1,
-      "title": "vacas",
+      "title": "las vacas",
       "body": "si me gusta la carne de vaca",
       "id": 188
+    },
+    {
+      "userId": 1,
+      "title": "pollos  y gallinas",
+      "body": "me gustan los pollos caseros",
+      "id": 189
     }
   ],
   "users": [
