@@ -63,4 +63,7 @@ http=inject(HttpClient)
   deletePost(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  //vehicles = computed(() => this.vehiclesResource.value()?.results ?? [] as Vehicle[]);
+
 }
