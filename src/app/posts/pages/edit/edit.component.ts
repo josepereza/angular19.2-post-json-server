@@ -3,10 +3,11 @@ import { Component, effect, inject, input, OnInit, signal } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Post } from '../../../interfaces/post';
 import { PostService } from '../../../services/post.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [ReactiveFormsModule, NgClass,RouterLink],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })
