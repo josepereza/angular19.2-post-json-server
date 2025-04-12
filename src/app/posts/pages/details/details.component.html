@@ -1,0 +1,22 @@
+<div class="container mt-4" *ngIf="post">
+    <div class="d-flex flex-column align-items-center">
+      <h1 class="h1-tipografia-govco">Detalle de la publicación</h1>
+      <div class="container-datail mt-5">
+        <h2 class="h2-tipografia-govco mb-4">{{ post().title }}</h2>
+        <p class="text1-tipografia-govco"><strong>ID:</strong> {{ post().id }}</p>
+        <p class="text1-tipografia-govco">
+          <strong>Usuario:</strong> {{ post().userId }}
+        </p>
+        <p class="text1-tipografia-govco"><strong>Contenido:</strong></p>
+        <p class="text1-tipografia-govco">{{ post().body }}</p>
+      </div>
+      <button
+        type="button"
+        [routerLink]="['/']"
+        class="btn-govco outline-btn-govco mx-4 mt-5"
+        style="width: 165px; height: 42px"
+      >
+        Volver
+      </button>
+    </div>
+  </div>
