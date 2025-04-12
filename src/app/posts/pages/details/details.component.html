@@ -8,6 +8,11 @@
         <p class="text1-tipografia-govco"><strong>ID:</strong> {{ postRs.value().id }}</p>
         <p class="text1-tipografia-govco">
           <strong>Usuario:</strong> {{ postRs.value().userId }}
+          @if (user) {
+
+                      <strong>Nombre:</strong> {{user.name}}
+
+          }
         </p>
         <p class="text1-tipografia-govco"><strong>Contenido:</strong></p>
         <p class="text1-tipografia-govco">{{ postRs.value().body }}</p>

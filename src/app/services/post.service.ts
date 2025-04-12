@@ -46,7 +46,12 @@ http=inject(HttpClient)
       url: `${this.apiUrl}/${id()}`,
     }));
   }
-
+  
+  getPostUserRs(id:number){
+    return httpResource<Post | undefined>(()=>({
+      url: `${this.apiUrl}/${id}`,
+    }))
+  }
   createPost(post: Post): Observable<Post> {
     return this.http.post<Post>(this.apiUrl, post);
   }

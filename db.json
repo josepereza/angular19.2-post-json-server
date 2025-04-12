@@ -2,7 +2,7 @@
   "posts": [
     {
       "userId": 1,
-      "title": "el asunto caixa",
+      "title": "el asunto caixa sabadell",
       "body": "quia et suscipit, jajajajajajaja\nsuscipit recusandae consequuntur expedita et cum\nla caixa tiene",
       "id": 1
     },
@@ -59,6 +59,12 @@
       "title": "pollos  y gallinas de corral",
       "body": "me gustan los pollos caseros",
       "id": 189
+    },
+    {
+      "userId": 3,
+      "title": "granja",
+      "body": "La granga del tio juan es fenomenal",
+      "id": 190
     }
   ],
   "users": [
