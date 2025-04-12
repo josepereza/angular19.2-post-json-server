@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams, httpResource } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, Signal } from '@angular/core';
 import { Post } from '../interfaces/post';
 import { Observable } from 'rxjs';
 
@@ -39,6 +39,12 @@ http=inject(HttpClient)
 
   getPost(id: number): Observable<Post> {
     return this.http.get<Post>(`${this.apiUrl}/${id}`);
+  }
+ 
+  getPostRs(id: Signal<number>) {
+    return httpResource<Post | undefined>(() => ({
+      url: `${this.apiUrl}/${id()}`,
+    }));
   }
 
   createPost(post: Post): Observable<Post> {

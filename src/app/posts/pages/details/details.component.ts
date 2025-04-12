@@ -13,14 +13,8 @@ import { NgIf } from '@angular/common';
 export class DetailsComponent {
   id=input.required<number>();
   postService=inject(PostService)
-  post=signal<Post>({
-    'userId':0,
-    'title':'',
-     'body':''
-  })
-  ngOnInit(): void {
-    this.postService.getPost(this.id()).subscribe(data=>{
-     this.post.set(data)
-    })
-  }
+ 
+postRs=this.postService.getPostRs(this.id)
+
+
 }
